@@ -1,0 +1,21 @@
+<div *ngIf="!started">
+    Number of Nodes <input type="number" [(ngModel)]="nodesNumber">
+    <button (click)="takeInput()">Enter</button>
+</div>
+<div *ngIf="started">
+    Start Node <input type="number" [(ngModel)]="startingNode">
+    End Node <input type="number" [(ngModel)]="endingNode">
+    Gain <input type="number" [(ngModel)]="gain">
+    <button (click)="setGain()">Enter</button>
+</div>
+
+<button *ngIf="!finished && started" (click)="calculate()">calculate</button>
+<div *ngIf="finished">
+    <p>Forward Paths: {{forwardPathes.join(', ')}}</p>
+    <p>Loops: {{loops.join(', ')}}</p>
+</div>
+
+<div style="border: 1px solid black;">
+    <canvas id="1" width="1500px" height="650" #myCanvas>
+    </canvas>
+</div>
